@@ -1,0 +1,57 @@
+/*использую nesting, т.к. IE уже давно сам майкрософт не поддерживает, внизу комментарием оставлю, как бы выглядело без вложенности */
+.wrapper {
+    max-width: 1128px;
+    padding: 40px;
+    margin-inline: auto;
+    margin-block: 5em;
+}
+svg {
+    & image {
+        transition: all .3s ease-in-out;
+    }
+    &:where(:hover, :focus) image {
+        scale: 1.2;
+        x: -10%;
+        y: -10%;
+    }
+}
+.pentagons_grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 1rem; /*для отступов только по вертикали либо gap: 0 1rem; либо column-gap: 1rem; */
+    align-items: center;
+    @media screen and (max-width: 1101px) {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+    @media screen and (max-width: 721px) {
+        grid-template-columns: 1fr 1fr;
+    }
+    @media screen and (max-width: 421px) {
+        grid-template-columns: 1fr;
+    }    
+}
+
+/* для IE */
+
+/* svg image {
+    transition: all .3s ease-in-out;
+}
+svg:hover image,
+svg:focus image{
+    transform: scale(1.2) translate(-10%, -10%);
+}
+@media screen and (max-width: 1101px) {
+    .pentagons_grid {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
+@media screen and (max-width: 721px) {
+    .pentagons_grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+@media screen and (max-width: 421px) {
+    .pentagons_grid {
+        grid-template-columns: 1fr;
+    }
+}   */
